@@ -1,0 +1,53 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #AACA87; /* Background color for the entire app */
+  color: #000; /* Default font color */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.App h1 {
+  text-align: center; /* Centers the text */
+  font-size: 2rem; /* Adjust the font size as needed */
+  margin-top: 20px; /* Adds some space above the heading */
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: #000000; /* Default heading color */
+  margin: 0;
+}
+
+/* Links (if applicable globally) */
+a {
+  color: #EEEFE9;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.navbar {
+  background-color: #193844; /* Darker shade of the background */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #EEEFE9;
+}
+
+/* General Container */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #193844;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+

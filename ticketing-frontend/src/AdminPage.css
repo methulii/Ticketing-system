@@ -1,0 +1,65 @@
+.admin-page {
+    padding: 40px;
+    background-color: #FDF4E3; /* Light pastel blue */
+    border-radius: 25px;
+    color: #000; /* Dark blue for text */
+    max-width: 2600px;
+    margin: 50px auto; /* Center the container */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #00334E; /* Dark blue for headings */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.section1 {
+    width: 60%; /* Takes 60% of the parent container width */
+    min-width: 500px; /* Restricts the maximum width */
+    margin-bottom: 15px; /* Space between sections */
+    min-height: 200px; /* Minimum height for a larger section */
+}
+
+button {
+    background-color: #A1C6E7; /* Pastel blue for buttons */
+    color: #FFFFFF; /* White text */
+    padding: 14px 35px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #88AED6;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-table th, .admin-table td {
+    border: 1px solid #CCCCCC;
+    padding: 15px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.admin-table th {
+    background-color: #A8E6CF;
+    color: #00334E;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="email"] {
+    padding: 14px;
+    margin: 10px 0;
+    border: 1px;
+    border-radius: 10px;
+    width: 100%;
+    color: #1a1a1a;
+}

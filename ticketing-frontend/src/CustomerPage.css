@@ -1,0 +1,76 @@
+.customer-page {
+    padding: 40px;
+    max-width: 600px; /* Adjusted container width */
+    background-color: #FDF4E3; /* Soft beige */
+    border-radius: 25px;
+    margin: 50px auto; /* Centered on the page */
+    color: #000000; /* Warm brown text */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.customer-page h1, .customer-page h2 {
+    color: #000000; /* Warm terracotta */
+    text-align: center; /* Centered headings */
+}
+
+.section {
+    width: 80%; /* Takes 90% of the parent container width */
+    min-width: 500px; /* Restricts the maximum width */
+    margin-bottom: 35px; /* Space between sections */
+    min-height: 300px; /* Minimum height for a larger section */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.input-field {
+    padding: 12px;
+    border: 1px solid #E0C6B2;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #FFFFFF; /* Light beige */
+    color: #000000;
+    width: 100%; /* Fixed to fit container */
+    box-sizing: border-box; /* Ensures padding is included */
+}
+
+.input-field:focus {
+    outline: none;
+}
+
+.button {
+    padding: 15px 0;
+    background-color: #A5A58D;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%; /* Buttons span container width */
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #ad9d84; /* Darker orange on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .customer-page {
+        padding: 20px;
+    }
+
+    .input-field {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .button {
+        font-size: 0.9rem;
+    }
+}
