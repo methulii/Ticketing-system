@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class TicketService {
@@ -23,13 +24,28 @@ public class TicketService {
         this.customerRepository = customerRepository;
     }
 
+    private static final Set<String> validVendorIds = Set.of("VENDOR1", "VENDOR2", "VENDOR3", "VENDOR4", "VENDOR5");
+
+    // Validates the vendor ID
+    public static boolean isValidVendor(String vendorId) {
+        return isValidVendorId(vendorId);
+    }
+
+    // Checks if the vendor ID is in the list of valid vendors
+    public static boolean isValidVendorId(String vendorId) {
+        return validVendorIds.contains(vendorId);
+    }
+
     public long countAvailableTickets() {
         logger.info("Fetching available ticket count");
         return ticketRepository.countByStatus("AVAILABLE");
     }
 
-    public void addTickets(int count) {
+    public void addTickets(int count, String vendorId) {
         logger.info("Adding {} tickets to the pool", count);
+        if (!isValidVendor(vendorId)) {
+            throw new IllegalArgumentException("Invalid vendor");
+        }
         for (int i = 0; i < count; i++) {
             ticketRepository.save(new Ticket("AVAILABLE"));
         }
@@ -58,10 +74,11 @@ public class TicketService {
             ticket.setStatus("PURCHASED");
             ticket.setPurchaseTime(LocalDateTime.now());
             ticket.setCustomer(customer);
-            ticketRepository.save(ticket);
         }
 
+        ticketRepository.saveAll(availableTickets);  // Bulk save
         logger.info("Successfully purchased {} tickets for customer: {}", count, customerEmail);
         return "Successfully purchased " + count + " tickets";
     }
 }
+

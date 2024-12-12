@@ -4,7 +4,6 @@ import com.example.ticketing.config.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -37,7 +36,7 @@ public class CLIService {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input! Please enter a valid number.");
-                scanner.nextLine();  // Clear buffer
+                scanner.nextLine(); // Clear buffer
             }
         }
     }
@@ -48,19 +47,35 @@ public class CLIService {
 
             // Get Total Number of Tickets
             System.out.print("Enter Total Number of Tickets: ");
-            configuration.setTotalTickets(scanner.nextInt());
+            int totalTickets = scanner.nextInt();
+            if (totalTickets < 0) {
+                throw new IllegalArgumentException("Total Number of Tickets must be a positive integer.");
+            }
+            configuration.setTotalTickets(totalTickets);
 
             // Get Ticket Release Rate
             System.out.print("Enter Ticket Release Rate (tickets per minute): ");
-            configuration.setTicketReleaseRate(scanner.nextInt());
+            int ticketsPerMinute = scanner.nextInt();
+            if (ticketsPerMinute < 0) {
+                throw new IllegalArgumentException("Tickets per minute must be a positive integer.");
+            }
+            configuration.setTicketReleaseRate(ticketsPerMinute);
 
             // Get Customer Retrieval Rate
             System.out.print("Enter Customer Retrieval Rate (customers per minute): ");
-            configuration.setCustomerRetrievalRate(scanner.nextInt());
+            int customerRetrievalRate = scanner.nextInt();
+            if (customerRetrievalRate < 0) {
+                throw new IllegalArgumentException("Customers per minute must be a positive integer.");
+            }
+            configuration.setCustomerRetrievalRate(customerRetrievalRate);
 
             // Get Maximum Ticket Capacity
             System.out.print("Enter Maximum Ticket Capacity: ");
-            configuration.setMaxTicketCapacity(scanner.nextInt());
+            int maximumTicketCapacity = scanner.nextInt();
+            if (maximumTicketCapacity < 0) {
+                throw new IllegalArgumentException("Maximum Ticket Capacity must be a positive integer.");
+            }
+            configuration.setMaxTicketCapacity(maximumTicketCapacity);
 
             System.out.println("Configuration updated successfully.");
         } catch (InputMismatchException e) {

@@ -3,7 +3,8 @@ package com.example.ticketing.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LogUtil {
+public class
+LogUtil {
     // Create a logger for this class
     private static final Logger logger = LoggerFactory.getLogger(LogUtil.class);
 

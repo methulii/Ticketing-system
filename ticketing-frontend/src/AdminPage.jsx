@@ -9,6 +9,7 @@ const AdminPage = () => {
     const [ticketCount, setTicketCount] = useState(0);
     const [customerEmail, setCustomerEmail] = useState("");
     const [customerDetails, setCustomerDetails] = useState(null);
+    const [vendorId, setVendorId] = useState("");
 
     // Fetch available tickets and customers from the backend
     useEffect(() => {
@@ -79,15 +80,16 @@ const AdminPage = () => {
     const addTicket = () => {
         const count = parseInt(newTicket, 10); // Ensure it's a number
 
-        if (isNaN(count) || count <= 0) {
-            alert("Please enter a valid number of tickets.");
+        if (isNaN(count) || count <= 0 || !vendorId) {
+            alert("Please enter a valid number of tickets and vendor ID.");
             return;
         }
 
-        axios.post("http://localhost:8080/tickets/add", { count })
+        axios.post("http://localhost:8080/tickets/add", { count, vendorId })
             .then(response => {
                 alert(`${response.data} tickets added successfully!`);
                 setNewTicket(""); // Reset input field
+                setVendorId("");
                 fetchTickets(); // Refresh the ticket count
             })
             .catch(error => {
@@ -108,6 +110,12 @@ const AdminPage = () => {
                     placeholder="Number of Tickets"
                     value={newTicket}
                     onChange={(e) => setNewTicket(e.target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="Vendor ID"
+                    value={vendorId}
+                    onChange={(e) => setVendorId(e.target.value)}
                 />
                 <button onClick={addTicket} className="button">Add Ticket</button>
             </div>
